@@ -4,6 +4,11 @@ using System.Text;
 using System.Linq;
 using System.Security.Cryptography;
 
+/********************************/
+/*        not my code          */
+/* got it from stack overflow */
+/*****************************/
+
 namespace Server_manager
 {
     public static class StringCipher
