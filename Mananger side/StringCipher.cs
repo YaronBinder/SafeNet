@@ -4,10 +4,11 @@ using System.Text;
 using System.Linq;
 using System.Security.Cryptography;
 
-/********************************/
-/*        not my code          */
-/* got it from stack overflow */
-/*****************************/
+    /*************************************************/
+   /*               not my code                     */
+  /*         got it from stack overflow            */
+ /* https://stackoverflow.com/a/10177020/13295451 */
+/*************************************************/
 
 namespace Server_manager
 {
