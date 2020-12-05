@@ -20,12 +20,6 @@ namespace UserSide
                 string hostsFile = File.ReadAllText(hostsPath);
                 while (true)
                 {
-                    // make sure the AgentAwakening is running
-                    //if (Process.GetProcessesByName("UserSide").Length == 0)
-                    //{
-                    //    Process.Start(@"C:\Users\Yaron\Desktop\פרויקט בסייבר עדכני\צד לקוח\UserSide\UserSide\bin\Release\netcoreapp3.1\UserSide.exe");
-                    //}
-
                     // if the hosts file was alternate, it will be erased and rewrite
                     if (!File.ReadAllText(hostsPath).Equals(hostsFile))
                         File.WriteAllText(hostsPath, string.Empty);
