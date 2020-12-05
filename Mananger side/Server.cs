@@ -12,33 +12,33 @@ namespace Server_manager
         {
             try
             {
-                // פורט
+                // port number
                 Int32 port = 8080;
-                // מערך ביטים לקבלת תשובה מהלקוח
+                // byte array for storing the recived massage
                 byte[] recived = new byte[1024];
-                // סוקט
+                // create new IP end point
                 IPEndPoint localEndPoint = new IPEndPoint(address, port);
-                // יצירת הסוקט
+                // create new socket
                 Socket sender = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp)
                 {
                     SendTimeout = 3000
                 };
-                // חיבור ללקוח
+                // connect to client
                 sender.Connect(localEndPoint);
-                // קידוד הרשימה למערך של ביטים
+                // encoding the massage from string to byte array
                 byte[] messageSent = Encoding.ASCII.GetBytes(blockingList);
-                // שליחה של המערך וקבלה של גודל המערך שנשלח ללקוח
+                // sending the message and getting the size of the array
                 int byteSent = sender.Send(messageSent);
-                // מערך ביטים לשמירת ההודעה מהלקוח
+                // new byte array to store the message recived from the client
                 byte[] messageReceived = new byte[16];
-                // קבלה של ההודעה מהלקוח
+                // reciving the message from the client
                 sender.Receive(messageReceived);
-                // שמירה של ההודעה מהלקוח
+                // saving the massage from the client as an integer
                 int recivedMSG = int.Parse(Encoding.ASCII.GetString(messageReceived));
-                // סגירת הסוקט
+                // closing the socket
                 sender.Shutdown(SocketShutdown.Both);
                 sender.Close();
-                // במידה והלקוח קיבל את הרשימה, יוחזר אמת, אחרת יוחזר שקר
+                // in case of the client send back 1, return true, else return false
                 return recivedMSG == 1;
             }
             catch { }
