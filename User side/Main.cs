@@ -9,7 +9,8 @@ namespace UserSide
         readonly static Regex IP = new Regex(@"^[1-9]{1,3}\.[1-9]{1,3}\.[1-9]{1,3}\.[1-9]{1,3}$");
         public static void Main()
         {
-            //RunCommand("netsh advfirewall firewall set rule group=\"Network Discovery\" new enable=Yes");
+            // allow share on your computer
+            RunCommand("netsh advfirewall firewall set rule group=\"Network Discovery\" new enable=Yes");
             Thread blockingCycle = new Thread(new ThreadStart(BlockingCycle.CheckFiles));
             blockingCycle.Start();
             SocketListener.StartListening();
