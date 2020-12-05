@@ -1,2 +1,2 @@
 # SafeNet
-Simple and plain software to block any website
+Simple and plain software, which I wrote as final project, to block any website
